@@ -1,4 +1,6 @@
+import 'package:book_tickets/src/screens/hotel_screen.dart';
 import 'package:book_tickets/src/screens/ticket_view.dart';
+import 'package:book_tickets/src/utils/app_info_list.dart';
 import 'package:book_tickets/src/utils/app_styles.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
@@ -99,7 +101,64 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           const Gap(15),
-          const TicketView(),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.only(
+              left: 20,
+            ),
+            child: Row(
+              children: ticketList
+                  .map(
+                    (singleTicket) => TicketView(
+                      ticket: singleTicket,
+                    ),
+                  )
+                  .toList(),
+            ),
+          ),
+          const Gap(15),
+          Container(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 20,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Hotels',
+                  style: Styles.headLineStyle_2,
+                ),
+                InkWell(
+                  onTap: () {
+                    print('You Are Tapped');
+                  },
+                  child: Text(
+                    'View all',
+                    // Styles.textStyle의 color만을 변경
+                    style: Styles.textStyle.copyWith(
+                      color: Styles.primaryColor,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const Gap(15),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.only(
+              left: 20,
+            ),
+            child: Row(
+              children: hotelList
+                  .map(
+                    (singleHotel) => HotelScreen(
+                      hotel: singleHotel,
+                    ),
+                  )
+                  .toList(),
+            ),
+          ),
         ],
       ),
     );
