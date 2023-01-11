@@ -1,4 +1,6 @@
 import 'package:book_tickets/src/screens/home_screen.dart';
+import 'package:book_tickets/src/screens/search_screen.dart';
+import 'package:book_tickets/src/screens/ticket_screen.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 
@@ -16,8 +18,8 @@ class _BottomBarState extends State<BottomBar> {
   /// 하단 내비게이션바 요소별 나타나는 Widget List
   static final List<Widget> _widgetOptions = <Widget>[
     const HomeScreen(),
-    const Text('Search'),
-    const Text('Tickets'),
+    const SearchScreen(),
+    const TicketScreen(),
     const Text('Profile'),
   ];
 

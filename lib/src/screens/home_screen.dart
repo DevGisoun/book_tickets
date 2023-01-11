@@ -2,9 +2,12 @@ import 'package:book_tickets/src/screens/hotel_screen.dart';
 import 'package:book_tickets/src/screens/ticket_view.dart';
 import 'package:book_tickets/src/utils/app_info_list.dart';
 import 'package:book_tickets/src/utils/app_styles.dart';
+import 'package:book_tickets/src/widgets/app_double_text_widget.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+
+import '../utils/app_layout.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -16,12 +19,14 @@ class HomeScreen extends StatelessWidget {
       body: ListView(
         children: [
           Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 20,
+            padding: EdgeInsets.symmetric(
+              horizontal: AppLayout.getHeight(20),
             ),
             child: Column(
               children: [
-                const Gap(40),
+                Gap(
+                  AppLayout.getHeight(40),
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -76,26 +81,9 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 const Gap(40),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Upcoming Flights',
-                      style: Styles.headLineStyle_2,
-                    ),
-                    InkWell(
-                      onTap: () {
-                        print('You Are Tapped');
-                      },
-                      child: Text(
-                        'View all',
-                        // Styles.textStyle의 color만을 변경
-                        style: Styles.textStyle.copyWith(
-                          color: Styles.primaryColor,
-                        ),
-                      ),
-                    ),
-                  ],
+                const AppDoubleTextWidget(
+                  bigText: 'Upcoming flights',
+                  smallText: 'View all',
                 ),
               ],
             ),
@@ -121,26 +109,9 @@ class HomeScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(
               horizontal: 20,
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Hotels',
-                  style: Styles.headLineStyle_2,
-                ),
-                InkWell(
-                  onTap: () {
-                    print('You Are Tapped');
-                  },
-                  child: Text(
-                    'View all',
-                    // Styles.textStyle의 color만을 변경
-                    style: Styles.textStyle.copyWith(
-                      color: Styles.primaryColor,
-                    ),
-                  ),
-                ),
-              ],
+            child: const AppDoubleTextWidget(
+              bigText: 'Hotels',
+              smallText: 'View all',
             ),
           ),
           const Gap(15),
